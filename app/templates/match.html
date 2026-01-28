@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>AI Match</h1>
+
+{% if request.query_params.get("error") %}
+  <p class="error">{{ request.query_params.get("error") }}</p>
+{% endif %}
+
+<form method="post" action="/match" class="card">
+  <label>Choose Resume</label>
+  <select name="resume_id" required>
+    {% for r in resumes %}
+      <option value="{{ r.id }}" {% if selected_id and selected_id == r.id %}selected{% endif %}>
+        {{ r.title }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <label>Job Description</label>
+  <textarea name="jd_text" rows="10" required>{% if jd_text %}{{ jd_text }}{% endif %}</textarea>
+
+  <button type="submit">Run Match</button>
+</form>
+
+{% if result %}
+<div class="card">
+  <h3>Result</h3>
+  <p><b>Match:</b> {{ result.match_percent }}%</p>
+  <p><b>Missing keywords:</b></p>
+  <div class="chips">
+    {% for kw in result.missing_keywords %}
+      <span class="chip">{{ kw }}</span>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

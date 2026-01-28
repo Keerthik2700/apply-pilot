@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="grid">
+  <div class="card">
+    <h3>Status counts</h3>
+    <ul>
+      <li>Applied: {{ counts.get("applied", 0) }}</li>
+      <li>Interview: {{ counts.get("interview", 0) }}</li>
+      <li>Rejected: {{ counts.get("rejected", 0) }}</li>
+      <li>Offer: {{ counts.get("offer", 0) }}</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Weekly trend</h3>
+    <ul>
+      {% for row in trend %}
+        <li>{{ row.week }} → {{ row.count }}</li>
+      {% endfor %}
+    </ul>
+    <p class="hint">(Simple list now; upgrade to chart later)</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Env / secrets
+.env
+.env.*
+
+# Mac
+.DS_Store
+
+# Docker / local volumes
+pgdata/
+*.log
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ApplyPilot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">ApplyPilot</div>
+    <nav class="links">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/apps">Applications</a>
+      <a href="/resumes">Resumes</a>
+      <a href="/match">AI Match</a>
+      <form method="post" action="/logout" style="display:inline;">
+        <button class="linkbtn" type="submit">Logout</button>
+      </form>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

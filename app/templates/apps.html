@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <h1>Applications</h1>
+  <a class="btn" href="/apps/new">+ New</a>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr><th>Company</th><th>Role</th><th>Status</th><th>Updated</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for a in apps %}
+        <tr>
+          <td>{{ a.company }}</td>
+          <td>{{ a.role }}</td>
+          <td><span class="pill">{{ a.status.value }}</span></td>
+          <td>{{ a.updated_at }}</td>
+          <td>
+            <form method="post" action="/apps/{{ a.id }}/delete">
+              <button class="danger" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      {% if apps|length == 0 %}
+        <tr><td colspan="5" class="muted">No applications yet.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

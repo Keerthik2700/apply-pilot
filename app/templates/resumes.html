@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Resumes</h1>
+
+<form method="post" action="/resumes/new" class="card">
+  <label>Title</label><input name="title" placeholder="SWE Resume v1" required />
+  <label>Content (paste text)</label>
+  <textarea name="content" rows="10" required></textarea>
+  <button type="submit">Save Resume</button>
+</form>
+
+<div class="card">
+  <h3>Saved resumes</h3>
+  <ul>
+    {% for r in resumes %}
+      <li><b>{{ r.title }}</b> — {{ r.created_at }}</li>
+    {% endfor %}
+    {% if resumes|length == 0 %}
+      <li class="muted">No resumes yet.</li>
+    {% endif %}
+  </ul>
+</div>
+{% endblock %}
