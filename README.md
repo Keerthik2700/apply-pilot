@@ -1,3 +1,9 @@
+# Hi, I'm Keerthi 👋  
+Backend & Full-Stack Software Engineer  
+
+I build production-style web applications using **FastAPI, PostgreSQL, Docker**, and modern backend architecture patterns.
+
+
 # ApplyPilot — AI-Assisted Job Application Tracker (FastAPI + Postgres)
 
 A production-style full-stack web app to track job applications, manage resume versions, and run AI-lite resume-to-JD matching.
